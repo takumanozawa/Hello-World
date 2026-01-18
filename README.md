@@ -48,47 +48,68 @@
 - React Native
 - WatermelonDB
 
-## セットアップ
+## 🚀 クイックスタート
 
-### 必要な環境
-- Docker & Docker Compose
-- Node.js 18+
-- Python 3.11+
-
-### 開発環境の起動
+**最速5分で起動！**
 
 ```bash
-# 1. リポジトリのクローン
-git clone <repository-url>
+# リポジトリをクローン
+git clone https://github.com/takumanozawa/Hello-World.git
 cd Hello-World
 
-# 2. Docker環境の起動
-docker-compose up -d
-
-# 3. バックエンドのセットアップ
-cd backend
-poetry install
-poetry run alembic upgrade head
-
-# 4. フロントエンドのセットアップ
-cd ../frontend
-pnpm install
-
-# 5. 開発サーバーの起動
-pnpm dev
+# 自動デプロイスクリプトを実行
+./scripts/deploy.sh local
 ```
 
-アクセス:
-- フロントエンド: http://localhost:3000
-- バックエンドAPI: http://localhost:8000
-- API Docs: http://localhost:8000/docs
+詳細は [クイックスタートガイド](QUICKSTART.md) を参照。
 
-## ドキュメント
+### アクセスURL
+- 🌐 **フロントエンド**: http://localhost:3000
+- 🔧 **バックエンドAPI**: http://localhost:8000
+- 📚 **API Docs**: http://localhost:8000/docs
+- 📦 **MinIO Console**: http://localhost:9001
 
-- [システム設計書](docs/SYSTEM_DESIGN.md)
-- [データベーススキーマ](docs/DATABASE_SCHEMA.md)
-- [API仕様書](docs/API_SPECIFICATION.md) ※作成予定
-- [開発ガイド](docs/DEVELOPMENT_GUIDE.md) ※作成予定
+## 📦 デプロイ
+
+### ローカル環境
+```bash
+./scripts/deploy.sh local
+```
+
+### 本番環境
+```bash
+sudo ./scripts/deploy.sh production
+```
+
+詳細は [デプロイガイド](docs/DEPLOYMENT_GUIDE.md) を参照。
+
+## 🛠️ 運用コマンド
+
+```bash
+# サービスの停止
+docker-compose stop
+
+# サービスの再起動
+docker-compose restart
+
+# バックアップ
+./scripts/backup.sh
+
+# ログの確認
+docker-compose logs -f
+```
+
+## 📚 ドキュメント
+
+### 開始ガイド
+- [📖 クイックスタート](QUICKSTART.md) - 5分で起動
+- [🚀 デプロイガイド](docs/DEPLOYMENT_GUIDE.md) - ローカル・本番環境へのデプロイ
+
+### 技術ドキュメント
+- [🏗️ システム設計書](docs/SYSTEM_DESIGN.md) - 構成図、技術スタック
+- [🗄️ データベーススキーマ](docs/DATABASE_SCHEMA.md) - 全テーブル定義、ERD
+- [👨‍💻 開発ガイド](docs/DEVELOPMENT_GUIDE.md) - 開発環境、フロー、ベストプラクティス
+- [📊 実装状況](docs/IMPLEMENTATION_STATUS.md) - 現在の完成度、次ステップ
 
 ## ディレクトリ構造
 
@@ -124,24 +145,29 @@ docs/
 └── images/              # 図表
 ```
 
-## 開発フェーズ
+## 📊 実装状況
 
-### Phase 1: 基盤構築（完了）
-- [x] システム設計
-- [x] データベース設計
-- [x] プロジェクト構造作成
+**全体進捗**: 約70% (コア機能完成)
 
-### Phase 2: コア機能開発（進行中）
-- [ ] バックエンドAPI実装
-- [ ] GPS端末連携
-- [ ] 運行管理・サイクルタイム計測
-- [ ] ダッシュボード実装
+### ✅ 完成
+- システム設計・ドキュメント (100%)
+- バックエンド基盤 (FastAPI, SQLAlchemy, Alembic) (100%)
+- データベースモデル (全9ファイル) (100%)
+- ビジネスロジック (GPS連携, サイクルタイム計測, シミュレーション) (80%)
+- フロントエンド基盤 (React, TypeScript, Material-UI) (100%)
+- Docker環境 (100%)
+- デプロイスクリプト (100%)
 
-### Phase 3: 高度機能開発（予定）
-- [ ] リソース最適化
-- [ ] シミュレーション
-- [ ] アラート・通知
-- [ ] モバイルアプリ
+### 🚧 実装予定
+- APIエンドポイント (CRUD操作)
+- WebSocket (リアルタイム通信)
+- 地図表示 (Leaflet)
+- ガントチャート (工程管理)
+- アラート機能
+- レポート生成 (Excel/PDF)
+- モバイルアプリ
+
+詳細は [実装状況ドキュメント](docs/IMPLEMENTATION_STATUS.md) を参照。
 
 ## ライセンス
 
